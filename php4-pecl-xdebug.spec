@@ -16,7 +16,7 @@ URL:		http://pecl.php.net/package/xdebug/
 BuildRequires:	libedit-devel
 BuildRequires:	libtool
 BuildRequires:	php4-devel >= 3:4.1.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	rpmbuild(macros) >= 1.578
 Requires:	%{_sysconfdir}/conf.d
 %{?requires_zend_extension}
 Conflicts:	ZendOptimizer
@@ -68,7 +68,7 @@ To rozszerzenie ma w PECL status: %{_status}.
 %setup -q -c
 chmod +x %{_modname}-%{version}/debugclient/configure
 cp %{SOURCE1} %{_modname}.ini
-sed -e 's#^;zend_extension.*#zend_extension%{?zend_zts:_ts}=%{extensionsdir}/%{_modname}.so#' -i %{_modname}.ini
+sed -e 's#^;zend_extension.*#zend_extension%{?zend_zts}=%{extensionsdir}/%{_modname}.so#' -i %{_modname}.ini
 
 %build
 cd %{_modname}-%{version}
