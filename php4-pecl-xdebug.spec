@@ -5,12 +5,12 @@
 Summary:	%{_modname} - provides functions for functions traces and profiling
 Summary(pl.UTF-8):	%{_modname} - funkcje do śledzenia i profilowania funkcji
 Name:		php4-pecl-%{_modname}
-Version:	2.0.2
-Release:	2
+Version:	2.0.5
+Release:	1
 License:	BSD style
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	b994465f9941db4e7ffa4f8b81fa5c3d
+# Source0-md5:	2d87dab7b6c499a80f0961af602d030c
 Source1:	%{name}.ini
 URL:		http://pecl.php.net/package/xdebug/
 BuildRequires:	libedit-devel
@@ -76,10 +76,11 @@ phpize
 %configure
 %{__make}
 cd debugclient
-install /usr/share/automake/{config.*,depcomp} .
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
+#rm -f *.m4
+#install /usr/share/automake/{config.*,depcomp} .
+#%{__libtoolize}
+#%{__aclocal}
+#%{__autoconf}
 %configure \
 	--with-libedit
 %{__make}
